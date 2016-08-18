@@ -3,17 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="client.js"></script>
+    <script src="browser/trainer-factory.js"></script>
+    <script src="browser/upload/upload.js" defer></script>
+ </head>
+  <body ng-app='brainlab'>
+    <h1>Welcome! {{1 + 2}}</h1>
+    <ui-view></ui-view>
   </body>
 
   <script>
-    // You can also require other files to run in this process
+    // require('./node_modules/angular/angular.js')
+    // require('./client.js')
+    // require('./browser/upload/upload.js')
+    // require('./browser/training-results/results.js')
+    // require('./browser/state-2/state-2.js')
+    require('./node_modules/angular-ui-router/release/angular-ui-router.js')
+    require('./node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js')
     require('./renderer.js')
   </script>
 </html>

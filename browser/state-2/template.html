@@ -1,0 +1,65 @@
+<div class="state-2">
+    <!-- Header -->
+    <header>
+        <h1 class="l--page">Train a neural network with <b>Brain Lab</b> and test your own data against it.</h1>
+    </header>
+    <!-- Top Controls -->
+    <div id="top-controls">
+        <div class="container l--page">
+            <div class="timeline-controls">
+                <button class="btn btn-info btn-sm" id="train-button" title="Train" ng-click="trainNetwork()">TRAIN!</button>
+            </div>
+            <br> Now let's decide on how many hidden layers you would like, and how many neurons in each layer. What is the purpose of a hidden layer? We pass in a weighted input through the hidden neurons. Each neuron will take the sum of the inputs and perform an activation/nonlinear function. For large dimensional datasets, increasing number of hidden layer may increase performance, but only up to a certain point.
+        </div>
+    </div>
+    <!-- Main Part -->
+    <div id="main-part" class="l--page">
+        <!--  Data Column-->
+        <div class="column data">
+            <h4>
+        <span>Specs</span><br>
+      </h4>
+            <p>Input columns: {{numInputs}}</p>
+            <p>Classes: 4</p>
+        </div>
+        <!-- Features Column -->
+        <div class="column features">
+            <h4>Input Layer</h4>
+            <p>Number of attributes equals number of nodes</p>
+            <div id="network">
+                <div ng-repeat="layer in hiddenLayers" class="plus-minus-neurons" style="left: {{layer.neurons[0].x - 30}}px;">
+                    <div class="ui-numNodes1">
+                        <button ng-click="addNeurons($index)" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">add</i></button>
+                        <button ng-click="removeNeurons($index)" class="mdl-button mdl-js-button mdl-button--icon"><i class="material-icons">remove</i></button>
+                    </div>
+                    <div class="numNeurons">{{layer.neurons.length}} neurons</div>
+                </div>
+            </div>
+        </div>
+        <!-- Hidden Layers Column -->
+        <div class="column hidden-layers">
+            <h4>
+                  <div class="ui-numHiddenLayers">
+                    <button id="add-layers" class="mdl-button mdl-js-button mdl-button--icon" ng-click="addLayers()">
+                      <i class="material-icons">add</i>
+                    </button>
+                    <button id="remove-layers" class="mdl-button mdl-js-button mdl-button--icon" ng-click="removeLayers()">
+                      <i class="material-icons">remove</i>
+                    </button>
+                  </div>
+                  <span id="num-layers">{{hiddenLayers.length}}</span>
+                  <span id="layers-label">Hidden Layers</span>
+                </h4>
+            <div class="bracket"></div>
+        </div>
+        <!-- Output Column -->
+        <div class="column output">
+            <h4>Output</h4>
+            <div class="metrics">
+                <div class="output-stats train">
+                    <span>One output column, hence one neuron</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+.input-section {
+  background: aliceblue;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.input-columns {
+  display: inline-block;
+}
+.input-columns.grey-out {
+  background: lightgrey;
+}
+
+.input-columns:hover {
+  background: lightblue;
+}
+
+.output-section {
+  background: lightpink;
+}
+
+
